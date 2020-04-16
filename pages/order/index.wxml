@@ -1,0 +1,171 @@
+<view>
+  <slideTab tList="{{statusType}}" bind:changeCurrent="swichNav" currentTab="{{currentType}}">
+    <swiper current="{{currentType}}" duration="300" bindchange="bindChange" style="height: {{windowHeight-35}}px;margin-top:35px;background:#f5f5f5">
+      <block>
+      <van-loading class='loading' color="#1989fa" wx-if="{{loading == true}}"/>
+        <swiper-item wx:for="{{list}}">
+         <scroll-view scroll-y="true" class="order-list" scroll-with-animation="true" lower-threshold="1" bindscrolltolower="scrolltolower" style="height: {{windowHeight-35}}px;">
+          <view class="no-order" hidden="{{dataList.length ? true : false}}">
+            <image src="../../assets/err.png" class="no-order-img"></image>
+            <view class="text">暂无订单</view>
+          </view>
+          <view class="list" hidden="{{dataList ? flase : true}}">
+            <view class="listUl" wx:for="{{dataList}}" :key="index">
+              <view class="listUl-li">
+                <view class="order">
+                  <view class="number">订单号
+                    <span style="color:#404040">{{item.orderNo}}</span>
+                  </view>
+                  <view class="order-text" wx-if='{{item.status == 0}}'>待付款</view>
+                 <view class="order-text" wx-if='{{item.status == 2}}'>待收货</view>
+                  <view class="order-text" wx-if='{{item.status == 1}}'>待发货</view>
+                  <view class="order-text" wx-if='{{item.status == 4}}'>交易成功</view>
+                  <view class="order-text" wx-if='{{item.status == 3}}'>已送达</view>
+                  <view class="order-text" wx-if='{{item.status == -1}}'>已取消</view> 
+                </view>
+                <view class="cont" wx:for='{{item.orderGoodsList}}'>
+                  <image src="{{item.goodsCoverImg}}" alt="" class="shopImg" />
+                  <view class="cont-index">
+                    <view>
+                      <view class="h4">{{item.goodsName}}</view>
+                      <view class='guige'> <text wx-if='{{item.skuName}}'>颜色: {{item.skuName}} </text> x{{item.num}} </view>
+                    </view>
+                    <view>
+                      <view class="price">
+                        <text class="yen">￥</text>{{item.payPrice}}</view>
+                    </view>
+                  </view>
+                </view>
+                <view class="foot" wx-if='{{item.logisticsNo && item.status == 2}}' style="height:1.7rem;">
+                  <view class="time time1">
+                    <view style="font-size:24rpx;line-height:1;white-space: nowrap">物流信息</view>
+                    <view style="color:#808080;font-size:22rpx;margin-left:5rpx;line-height: 1.3;white-space: nowrap">
+                      <view>物流名称：{{item.logisticsName}}</view>
+                      <view>物流单号：{{item.logisticsNo}} </view>
+                      <view>发货时间：{{item.dispatchTime}}</view>
+                    </view>
+                  </view>
+                  <view class="btn">
+                  <van-button plain color="#B3B3B3" data-item='{{item}}' bindtap="onClick3"  size="small">查看物流</van-button>
+                    <van-button color="linear-gradient(-61deg,rgba(254,221,153,1) 0%,rgba(245,193,100,1) 100%)" bindtap="onClick5" wx-if='{{item.status == 2 && item.logisticsNo}}' data-id ='{{item.id}}' size="small" >确认收货</van-button>
+                  </view>
+                </view>
+                <view class="foot">
+                  <view style='margin-top:34rpx;color:#40400' wx-if="{{item.surplusTime > 0 && item.status == 0}}">
+                  <van-count-down class="time" time="{{item.surplusTime * 1000}}" millisecond format="付款剩余时间 HH:mm:ss" />
+                  </view>
+                  <view class="time" wx-if='{{item.status == -1}}'>取消时间 {{item.cancelTime}}</view>
+                  <!-- <view class="time" wx-if='{{item.status == 3}}' style='margin-top:34rpx;color:#40400'>
+                    <van-count-down class="time" time="{{item.surplusTime * 1000}}" millisecond format="自动确认时间 HH:mm:ss" />
+                  </view> -->
+                  <view class="time" wx-if='{{item.status == 3}}'>完成时间 {{item.confirmTime }}</view>
+                  <view class="time" wx-if='{{(item.status == 1 || item.status == 2 )&& !item.logisticsNo}}'>提交时间 {{item.payTime}}</view>
+                  <view class="btn">
+                    <van-button plain color="#B3B3B3" data-id ='{{item.id}}' bindtap='onClick1' wx-if='{{item.status == 0}}' size="small" style="margin-left:.2rem">取消</van-button>
+                    <van-button plain color="#B3B3B3" data-id ='{{item.id}}' bindtap="onClick2" wx-if='{{item.status == 3}}' size="small" style="margin-left:.2rem">删除订单</van-button>
+                    <van-button plain color="#B3B3B3" data-item='{{item}}' bindtap="onClick3" wx-if='{{item.status == 3}}' size="small">查看物流</van-button>
+                    <!-- <van-button plain color="#B3B3B3" data-id ='{{item.id}}' bindtap="onClick4" wx-if='{{item.status == -1 && item.logisticsNo}}' size="small" style="margin-left:.2rem">申请退款</van-button> -->
+                    <van-button color="linear-gradient(-61deg,rgba(254,221,153,1) 0%,rgba(245,193,100,1) 100%)" bindtap="onClick5" wx-if='{{item.status == -1 && item.logisticsNo}}' data-id ='{{item.id}}' size="small" style="margin-left:.2rem">确认收货</van-button>
+                    <van-button color="linear-gradient(-61deg,rgba(254,221,153,1) 0%,rgba(245,193,100,1) 100%)" wx-if='{{item.status == 0}}' bindtap="onClickPay" data-item ='{{item}}' size="small" style="margin-left:.2rem">付款</van-button>
+                  </view>
+                </view>
+
+              </view>
+            </view>
+          </view>
+          <view wx-if='{{active}}' class='more'>没有更多了哦~</view>
+          </scroll-view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </slideTab>
+</view>
+
+ <!-- 查看物流 -->
+  <view id='msg' wx:if="{{msgShow}}" bindtap='haldMsg'>
+  </view>
+  <view class='box2' wx:if="{{msgShow}}">
+    <view class='box-test'>
+      <view class="box-tl">物流详情</view>
+      <view class='g_con'>
+        <view class='topExpress'>
+          <view class='topExpress-right'>
+            <view class='topExpress-right-top'>{{datainfo2.logisticsName}} ：{{datainfo2.logisticsNo}}</view>
+            <view class='hg'>
+              <view class='shouhuo'>收货地址 ：</view>
+              <view class='le'>
+                <view class='topExpress-right-middle'>
+                  {{datainfo2.addressContact}} {{datainfo2.addressPhone}}</view>
+                <view class='topExpress-right-bottom'>{{datainfo2.address}}</view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <!-- 物流时间轴 -->
+        <scroll-view scroll-y="true" class='expressRecord' bindscrolltolower="loadMore" bindscrolltoupper="refesh" >
+        <block wx-if='{{datainfo2.length >0}}'>
+          <view class='expressRecord-single-close' >
+            <view class='expressRecord-single-noReach-online-top-close'>
+              <view class='dot-closing'></view>
+              <view class='online-bottoming'></view>
+            </view>
+            <view class='expressRecord-text'>
+              <view class='expressRecord-status'></view>
+              <view class='expressRecord-status-addressing'>{{(dataInfos[0].remark)}}</view>
+            </view>
+            <view class='expressRecord-date'>
+              <view class='expressRecord-date-text'>
+                {{(dataInfos[0].occurTime[1])}}
+              </view>
+              <view class='expressRecord-date-time'>
+                {{(dataInfos[0].occurTime[0])}}
+              </view>
+            </view>
+          </view>
+          <!-- 单个物流记录点时间轴：当前正在进行的物流状态 -->
+          <block wx:for="{{dataInfos2}}" wx:for-item="items">
+            <view class='expressRecord-single-close'>
+              <view class='expressRecord-single-noReach-online-top-close'>
+                <view class='online-top-close'></view>
+                <view class='dot-close'></view>
+                <view class='online-bottom'></view>
+              </view>
+              <view class='expressRecord-text'>
+                <view class='expressRecord-status-address'>{{items.remark}}</view>
+              </view>
+              <view class='expressRecord-date'>
+                <view class='expressRecord-date-text'>
+                  {{items.occurTime[1]}}
+                </view>
+                <view class='expressRecord-date-time'>
+                  {{items.occurTime[0]}}
+                </view>
+              </view>
+            </view>
+          </block>
+          <view class='expressRecord-single-close'>
+            <view class='expressRecord-single-noReach-online-top-close'>
+              <view class='online-top-close'></view>
+              <view class='dot-close'></view>
+              <view class='online-bottom-start'></view>
+            </view>
+            <view class='expressRecord-text'>
+              <view class='expressRecord-status'></view>
+              <view class='expressRecord-status-address'>{{(dataInfos[dataInfos.length-1].remark)}}</view>
+            </view>
+            <view class='expressRecord-date'>
+              <view class='expressRecord-date-text'>
+                {{(dataInfos[dataInfos.length-1].occurTime[1])}}
+              </view>
+              <view class='expressRecord-date-time'>
+                {{(dataInfos[dataInfos.length-1].occurTime[0])}}
+              </view>
+            </view>
+          </view>
+         </block>
+        </scroll-view>
+      </view>
+    </view>
+  </view>
+<van-dialog id="van-dialog" />
+<van-toast id="van-toast" />

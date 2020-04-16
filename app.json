@@ -1,0 +1,77 @@
+{
+  "pages":[
+    "pages/home/index",
+    "pages/shop/index",
+    "pages/my/index",
+    "pages/details/index",
+    "pages/shopkeeperCenter/index",
+    "pages/payMent/index",
+    "pages/address/index",
+    "pages/addressman/index",
+    "pages/account/index",
+    "pages/addBank/index",
+    "pages/addOreidt/index",
+    "pages/bankCard/index",
+    "pages/code/index",
+    "pages/collection/index",
+    "pages/editInfo/index",
+    "pages/fans/index",
+    "pages/feedback/index",
+    "pages/info/index",
+    "pages/order/index",
+    "pages/realName/index",
+    "pages/spellPurchase/index",
+    "pages/withdrawal/index",
+    "pages/customer/index",
+    "pages/about/index",
+    "pages/search/index",
+    "pages/ssList/index",
+    "pages/login/index",
+    "pages/pay/index",
+    "pages/cart/index"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#000",
+    "navigationBarTitleText": "仙美美妆商城",
+    "navigationBarTextStyle":"white"
+  },
+  "tabBar": {
+    "color": "#999",
+    "selectedColor": "#FEDC97",
+    "backgroundColor": "#000000",
+    "list": [
+      {
+        "pagePath": "pages/home/index",
+        "text": "仙美首页",
+        "iconPath": "assets/tab1.png",
+        "selectedIconPath": "assets/tab1Active.png"
+      },
+      {
+        "pagePath": "pages/shop/index",
+        "text": "全部产品",
+        "iconPath": "assets/tab2.png",
+        "selectedIconPath": "assets/tab2Active.png"
+      },
+      {
+        "pagePath": "pages/shopkeeperCenter/index",
+        "text": "店主中心",
+        "iconPath": "assets/tab3.png",
+        "selectedIconPath": "assets/tab3Active.png"
+      },
+      {
+        "pagePath": "pages/cart/index",
+        "text": "购物车",
+        "iconPath": "assets/tab4.png",
+        "selectedIconPath": "assets/tab4Active.png"
+      },
+      {
+        "pagePath": "pages/my/index",
+        "text": "个人中心",
+        "iconPath": "assets/tab5.png",
+        "selectedIconPath": "assets/tab5Active.png"
+      }
+    ]
+  },
+  "usingComponents": {}
+}

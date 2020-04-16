@@ -1,0 +1,31 @@
+.scroll-view-x{
+  background-color: #fff;
+  position:fixed;
+  height: 80rpx;
+  z-index:10;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  text-align: center;
+  top:0
+}
+.scroll-view-item{
+  line-height: 75rpx;
+  font-size: 26rpx;
+  color: #404040;
+  cursor: pointer;
+  position: relative;
+  
+}
+.on:after{
+  content: "";
+  display: block;
+  height: 4rpx;
+  width: 52rpx;
+  background: #EF8D06;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  margin-left: -25rpx;
+  border-radius: 16rpx;
+}

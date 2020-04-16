@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "usingComponents": {
+    "err": "../../components/err/index",
+    "van-toast": "../../dist/toast/index",
+    "van-icon": "../../dist/icon/index",
+    "van-stepper": "../../dist/stepper/index"
+  }
+}

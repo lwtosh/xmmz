@@ -1,0 +1,67 @@
+<!-- 联系人卡片 -->
+<view class="contact" bindtap="onClickadd">
+  <van-icon name="location" class="icon-lo" />
+  <view class="contactVal" wx:if="{{!addresssInfo.consignee}}">
+    <view style="color:#404040;margin-top:10rpx;">请添加收货地址</view>
+  </view>
+  <view class="contactVal" wx:else>
+    <view style="color:#404040;">{{addresssInfo.consignee}} {{addresssInfo.phone}}</view>
+    <view style="color:#999">{{addresssInfo.province}}{{addresssInfo.county}}{{addresssInfo.city}}{{addresssInfo.address}}</view>
+  </view>
+  <van-icon name="arrow" class="icon-lo arr" />
+</view>
+<!-- 商品 -->
+<view class="container carts-list">
+  <view wx:for="{{carts}}" class="carts-item">
+    <image class="carts-image" src="{{item.goodsCoverImg}}" mode="aspectFill" />
+    <view class="carts-text">
+      <view>
+        <view class="carts-title">{{item.goodsName}}</view>
+        <view class="carts-guige">颜色: {{item.gg_txt || item.skuName }} x{{item.saleNumber || item.num}} </view>
+      </view>
+      <view class="carts-subtitle">
+        <view class="carts-price">
+          <text style='font-size:22rpx'>￥</text>{{item.salePrice || item.payPrice}}
+          <text class='line'>￥{{item.marketPrice}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 合计 -->
+<view class='heji'>
+  <view class='heji-1'>
+    <view>商品合计</view>
+    <view>￥{{total}}</view>
+  </view>
+  <view class='heji-1'>
+    <view class='hejiDesc'>运费</view>
+    <view>￥{{logisticsPrice}}</view>
+  </view>
+  <view class='heji-2'>实付总额:
+    <text class='hejiNum'>￥{{totals}}</text>
+  </view>
+</view>
+<!-- 支付 -->
+<view class='btn'>
+  <view class='pay1' disabled='{{disabled1}}' bindtap='onClickpay1'>余额支付</view>
+  <button class='pay2' disabled='{{disabled}}' bindtap='onClickpay2'>微信支付</button>
+</view>
+<!-- 订单弹框 -->
+ <view id='msg1' wx:if="{{msgShow1}}" bindtap='haldMsg'>
+  </view>
+  <view class='box1' wx:if="{{msgShow1}}">
+    <view class='box-test'>
+      <view class="box-tl">确认支付金额</view>
+      <view class='box-pay' style="text-align: center;margin-bottom: 30rpx;color: #EF0F0F;">
+        <text class='tet'>￥</text> {{totals}}</view>
+      <view class='item-1'>订单号：
+        <text class='tet'>{{orderNo}}</text>
+      </view>
+      <view class='item-1' style="margin-bottom: 50rpx;">支付方式：
+        <text class='tet'>余额支付</text>
+      </view>
+    </view>
+    <view class='btn-agement' catchtap='payment'>支付</view>
+  </view>
+  <van-toast id="van-toast" />

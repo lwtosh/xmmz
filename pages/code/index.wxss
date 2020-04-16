@@ -1,0 +1,114 @@
+
+page{
+  width: 100%;
+  /* height: 100%; */
+  padding-top: 80rpx;
+  background: url(https://img-xmmz.oss-cn-hangzhou.aliyuncs.com/bgCode.png) center center no-repeat;
+  background-size:cover;
+  position: relative
+}
+button{
+  background: transparent;
+  border: none;
+  position: initial
+}
+.nav {
+ background: transparent;
+ color: #fff;
+ font-size: 34rpx;
+ position: fixed;
+ top: 0;
+ height: 98rpx;
+ padding: 40rpx 30rpx;
+ line-height: 98rpx;
+}
+/* pages/canvas/canvas.wxss */
+canvas{
+  position: fixed;
+  top: 0;
+  left: 400px;
+}
+.share{
+  position: absolute;
+  bottom: 100rpx;
+  width: 70%;
+  left: 15%;
+  height: 100rpx;
+  line-height: 100rpx;
+}
+.preview {
+  width: 100%;
+  height: 100vh;
+  background: rgba(0,0,0,.6);
+  position: absolute;
+  top: 0;
+  z-index: 2;
+}
+.preview image{
+  width: 70%;
+  position: absolute;
+  top: 10%;
+  left: 15%;
+  z-index: 3;
+  border: 1px dashed #fff;
+}
+.coles{
+  width:12%;
+height:84rpx;
+position:absolute;
+bottom:340rpx;
+left:44%;
+background: url(data:image/png;base64,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) no-repeat;
+  background-size: 100% 100%
+}
+.preview button{
+  width: 40%;
+  position: absolute;
+  bottom: 150rpx;
+  left: 30%;
+  
+}
+/* 画布绘制过程不能隐藏 但是又不能被用户看见 所以定位在用户看不到地方 */
+.arr{
+margin-right: 15rpx;
+ font-size: 46rpx;
+ vertical-align:-10rpx;
+
+}
+.desc{
+  width: 80%;
+  margin: auto;
+  font-size:24rpx;
+  color: #fff;
+  line-height: 2 ;
+  padding-top: 50rpx;
+}
+.desc image{
+  width: 392rpx;
+  height: 156rpx;
+}
+.box{
+  width: 100%;
+  text-align: center;
+  height: 840rpx;
+  background: url(https://img-xmmz.oss-cn-hangzhou.aliyuncs.com/code2.png) no-repeat;
+  background-size: 100% 100%;
+}
+.erweima{
+  width: 346rpx;
+  height: 346rpx;
+  margin-top: 80rpx;
+}
+.codeDesc{
+  font-size: 28rpx;
+  color: #fff;
+   margin-top: 141rpx;
+}
+.codeNum{
+  font-weight: bold;
+}
+.codeBtn{
+  margin-top: 40rpx;
+  width: 405rpx;
+  height: 72rpx;
+}

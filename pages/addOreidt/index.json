@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "新增收获地址",
+  "usingComponents": {
+  "van-switch": "../../dist/switch/index",
+  "van-toast": "../../dist/toast/index"
+  }
+}

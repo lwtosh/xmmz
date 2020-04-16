@@ -1,0 +1,11 @@
+.err{
+    margin: 150rpx auto 0;
+    text-align: center;
+    font-size: 24rpx;
+    color: #999;
+     }
+    image{
+      width: 85%;
+      height: 340rpx
+    }
+ 

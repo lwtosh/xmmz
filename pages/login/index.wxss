@@ -1,0 +1,74 @@
+.haedView {
+  margin: 90rpx 50rpx 90rpx 50rpx;
+}
+
+.headImageView {
+  display: block;
+  margin: 75px 25px 0px 25px;
+  height: 50px;
+}
+
+.headImage {
+  display: flex;
+  margin: auto;
+  width:96px;
+height:89px;
+}
+
+.titleText {
+  margin: 75px 0 10px 25px;
+  font-size: 14px;
+  color: #020e0f;
+  text-align: center;
+}
+
+.contentText {
+  margin: 0px 0px 0px 25px;
+  font-size: 14px;
+  color: #666;
+  text-align: center;
+}
+
+.authBtn {
+  margin: 35px 45px 0px 45px;
+  height: 45px;
+  font-size: 32rpx;
+  background: #00B22A;
+  border-radius:66rpx;
+
+}
+
+.box {
+  padding-left: 68rpx;
+  font-family: PingFang-SC-Regular;
+  width: 100%;
+}
+.hweixinImage{
+  /* width: 45rpx;
+  height: 38rpx; */
+  font-size:55rpx;
+  margin-right: 10rpx;
+  vertical-align: -15rpx;
+}
+.show {
+  display: block;
+}
+button[type=primary]{
+  border: 1rpx solid #07c160;
+  color: #07c160;
+  background-color: #fff;
+}
+.button-hover[type=primary],button[loading][type=primary]{
+  color:#07c160;
+  background-color:#fff;
+}
+.hide {
+  display: none;
+}
+.cale{
+  font-size: 32rpx;
+  color: #EF8D06;
+  text-align: right;
+  margin-top: 20rpx;
+  margin-right: 50rpx;
+}

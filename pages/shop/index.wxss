@@ -1,0 +1,98 @@
+page{
+    width: 100%;
+    height: 100%;
+    background: #f5f5f5;
+}
+.container{
+    width: 100%;
+    height: 100%;
+}
+swiper-item{
+  width: 50%
+}
+.nav {
+    height:92rpx;
+    width: 100%;
+    line-height: 76rpx;
+    background: #000;
+    font-size: 16px;
+    position: fixed;
+    justify-content: space-around;
+    display: flex;
+    top: 0;
+    z-index: 99;
+}
+.nav-item {
+    max-width: 25%;
+    color: #B3B3B3;
+    text-align: center;
+    font-size: 30rpx;
+}
+.nav-item.active{
+    color: #FDB34D;
+    position: relative;
+}
+.nav-item.active:after {
+  content: "";
+  display: block;
+  height: 10rpx;
+  width: 58rpx;
+  background:  url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAAKCAMAAADM1o0EAAAAPFBMVEVHcEz+s0z9s0z9s039s03+s039s0z/rkX9s0z9skz8skf+s03/tUr8skz9skz9s03+s0z+s03+s039s00u6Js/AAAAE3RSTlMAxI6c71ZmBvg1EM0eRnS1qd3iz6DiVQAAAJFJREFUKM+NkFkOwyAMRG3AC0uAxPe/a1MlSK1QWuYPPE/jMQAHH2FdsQcCCGaGJEuEEJ7u/YLMVuKiv7wnxGqXDrc958nmjtv3Xg+Es413q3EGJdYWhiXT+N76iDPT7CvFkgQklUjV54/Zd4nEaP+EnKYtCjd9BLRxeaibyOUZVPx1ors2u457UNOwY3c0n+YFdTAOCwm4SbQAAAAASUVORK5CYII=) no-repeat;
+  background-size: 100% 100%;
+  position: absolute;
+  bottom: 15rpx;
+  left: 50%rpx;
+  margin-left: 24rpx;
+  border-radius: 16rpx;
+}
+.tab-box{
+   width: 100%;
+    
+    padding-top: 100rpx;
+    padding-left: 20rpx ;
+    padding-right: 20rpx ;
+    /* height: 100%; */
+    box-sizing: border-box;
+}
+.tab-content{
+    overflow-y: scroll;
+}
+
+.list-ul{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 20rpx;
+   justify-content:space-between;
+}
+.list-li{
+ width:48%;
+/* margin-right:20rpx; */
+background: #fff;
+margin-bottom: 25rpx;
+border-radius: 10rpx;
+}
+.goodImg{
+  width: 100%;
+  height: 340rpx;
+  border-top-left-radius: 10rpx;
+  border-top-right-radius: 10rpx;
+}
+.goodName{
+  color: #404040;
+  font-size: 30rpx;
+  padding: 10rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.price{
+  padding:0 10rpx 10rpx 10rpx;
+  font-size: 34rpx;
+  color: #EF0F0F;
+}
+.shi{
+  font-size: 26rpx;
+  text-decoration: line-through;
+  color: #808080;
+}

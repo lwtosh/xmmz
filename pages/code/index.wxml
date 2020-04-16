@@ -1,0 +1,22 @@
+<view class='page' style='padding-top:{{navH}}rpx'>
+<view class='nav' style='height:{{navH}}px;line-height:{{navH}}px'  bindtap='onClickLeft'><van-icon wx:if='{{active}}' name="wap-home-o" class='arr' /><van-icon name="arrow-left" wx:else class='arr' />我的邀请码</view>
+<view class='desc'>
+  <image src='../../assets/codetext.png'></image>
+  <view>精选美妆好货 高品质 低价格 真正的性价比好物等你来</view>
+</view>
+<view class='box'>
+  <image src='{{dataList.qrcode}}' class='erweima' />
+  <view class='codeDesc'>我的邀请码：
+    <text class='codeNum'>{{dataList.inviteCode }}</text>
+  </view>
+  <view bindtap='share'><image src='../../assets/code1.png' class='codeBtn' /></view>
+</view>
+<!-- canvas.wxml -->
+<!-- 画布大小按需定制 这里我按照背景图的尺寸定的  -->
+<canvas  canvas-id="shareImg" style="width:545px;height:771px"></canvas>
+<view hidden='{{hidden}}' class='preview' bindtap='coles'>
+  <image src='{{prurl}}' mode='widthFix' catchtap='onclick'></image>
+  <!-- <view class='coles'  ></view> -->
+  <button type='primary' size='mini' catchtap='save'>保存分享图</button>
+</view>
+</view>

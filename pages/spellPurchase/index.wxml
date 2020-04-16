@@ -1,0 +1,58 @@
+<view>
+  <slideTab tList="{{statusType}}" bind:changeCurrent="swichNav" nav='{{nav}}' currentTab="{{currentType}}">
+    <swiper current="{{currentType}}" duration="300" bindchange="bindChange" style="height: {{windowHeight-35}}px;margin-top:35px;background:#f5f5f5">
+      <block>
+        <swiper-item wx:for="{{list}}">
+         <scroll-view scroll-y="true" class="order-list" scroll-with-animation="true" lower-threshold="1" bindscrolltolower="scrolltolower" style="height: {{windowHeight-35}}px;" hidden="{{item ? flase : true}}">
+          <view class="no-order" hidden="{{dataList.length ? true : false}}">
+            <image src="../../assets/err.png" class="no-order-img"></image>
+            <view class="text">暂无订单</view>
+          </view>
+          <view class="list" hidden="{{dataList ? flase : true}}">
+            <view class="listUl" wx:for="{{dataList}}" :key="index">
+              <view class="listUl-li">
+                <view class="order">
+                  <view class="number">订单号
+                    <span style="color:#404040">{{item.orderNo}}</span>
+                  </view>
+                  <view class="order-text" wx-if='{{item.status == -1}}'>拼团失败</view>
+                  <view class="order-text" wx-if='{{item.status == 1 && item.countdown <= 0 }}'>拼团成功</view>
+                  <view class="order-text" wx-if='{{item.status == 1 && item.countdown > 0}}'>进行中</view>
+                </view>
+                <view class="cont">
+                  <image src="{{item.goodsCoverImg}}"  wx:if='{{item.goodsCoverImg }}'alt="" class="shopImg" />
+                  <image src="../../assets/pro2.png" wx:else alt="" class="shopImg" />
+                  <view class="cont-index">
+                    <view>
+                      <view class="h4">{{item.goodsName }}</view>
+                      <view class='guige'><text wx-if='{{item.skuName}}'>颜色:{{item.skuName}}</text> x{{item.num}} </view>
+                    </view>
+                    <view>
+                      <view class="price">
+                        <text class="yen">￥</text>{{item.price}}</view>
+                    </view>
+                  </view>
+                </view>
+                <view class="foot">
+                  <view wx-if="{{item.countdown > 0 && item.status == 1}}">
+                    <van-count-down class="time" time="{{item.countdown * 1000}}" millisecond format="拼团剩余时间 HH:mm:ss" />
+                  </view>
+                  <view class="time" wx-if='{{item.status == -1}}'>结束时间 {{item.updateTime}}</view>
+                  <view class="time" wx-if='{{item.status == 1 && item.countdown == 0}}'>提交时间 {{item.updateTime}}</view>
+                  <view class="time" wx-if='{{item.status == 2}}'>完成时间 {{item.updateTime}}</view>
+                  <view class="btn">
+                  <!-- <view>已退款</view> -->
+                   <!-- <van-button plain color="#B3B3B3" data-id ='{{item.id}}' bindtap='onClick1' wx-if='{{item.status == 1}}' size="small" style="margin-left:.2rem">取消</van-button> -->
+                    <van-button color="linear-gradient(-61deg,rgba(254,221,153,1) 0%,rgba(245,193,100,1) 100%)" wx-if='{{item.status == 1 && item.countdown > 0}}' bindtap="onClicYao" size="small" open-type="share" data-id='{{item.id}}' data-goodsCoverImg='{{item.goodsCoverImg}}' data-name='{{item.goodsName}}' style="margin-left:30rpx">邀请好友</van-button>
+                  </view>
+                </view>
+
+              </view>
+            </view>
+          </view>
+            </scroll-view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </slideTab>
+</view>

@@ -1,0 +1,84 @@
+<err wx:if='{{carts == 0}}' />
+<view class='nav' wx:else>
+  <view class='nav-1'>共有{{carts.length}}件商品</view>
+  <view class='nav-2' wx:if='{{falg1}}' bindtap='onCLick1'>管理</view>
+  <view class='nav-2' wx:else bindtap='onCLick2'>完成</view>
+</view>
+<view class="container carts-list">
+  <view wx:for="{{carts}}" class="carts-item" data-id='{{item.goodsId}}' bindtap='onClickDetails'>
+    <image wx:if="{{item.goodsVo.status}}" type="success_circle" class='iconcircle' catchtap="bindCheckbox" data-index="{{index}}" src="../../assets/sele.png" />
+    <icon wx:else type="circle" size="20" catchtap="bindCheckbox" data-index="{{index}}" />
+    <view>
+      <image class="carts-image" src="{{item.goodsVo.goodsCoverImg }}" mode="aspectFill" />
+    </view>
+    <view class="carts-text">
+      <view>
+        <view class="carts-title">{{item.goodsVo.goodsName}}</view>
+        <view class="carts-guige" wx-if='{{item.skuName}}' catchtap='onCLickGuige' data-data="{{item}}">{{item.skuName}}
+          <van-icon class='arr' name="arrow-down" />
+        </view>
+      </view>
+      <view class="carts-subtitle">
+        <view class="carts-price"> 
+          <text style='font-size:22rpx'>￥</text>{{item.goodsVo.salePrice || 0}}
+        <text class='line'>￥{{item.goodsVo.marketPrice}}</text>
+        </view>
+        <view class='data'>
+          <text class='jia' catchtap="bindMinus" data-index="{{index}}" data-data="{{item}}">-</text>
+          <text>{{item.goodsNum }}</text>
+          <text class='jian' catchtap="bindPlus" data-index="{{index}}" data-data="{{item}}">+</text>
+        </view>
+
+      </view>
+    </view>
+  </view>
+</view>
+<view class="carts-footer">
+  <view bindtap="bindSelectAll">
+    <image wx:if="{{selectedAllStatus}}" type="success_circle" class='iconcircle' src="../../assets/sele.png" />
+    <icon wx:else type="circle" size="20" />
+    <text>全选</text>
+  </view>
+  <view wx:if='{{falg1}}' class='bindtotal'>
+    <view class='total'>合计:{{total}}</view>
+    <view class="button" bindtap='settlement'>结算</view>
+  </view>
+  <view wx:else class="button" bindtap='cartDel'>删除</view>
+</view>
+<van-toast id="van-toast" />
+<!-- 购买商品 -->
+<view wx-if="{{ showShop }}" class='wrappopup2'>
+  <view class='popup2'>
+    <view class='goods'>
+    <view class='goodsView'>
+    <image src='{{dataCart.goodsVo.goodsCoverImg}}'></image>
+      <view class='goods-left'>
+        <!-- <view class='mun1' wx-if="{{dataCart.goodsVo.groupFlag == 1 && identity  ==}}">
+          <text style='font-size:22rpx'>￥</text>{{dataCart.goodsVo.groupPrice|| 0 }}
+        </view> -->
+         <view class='mun1' wx:if="{{dataCart.goodsVo.shopFlag == 1  && identity == 1}}">
+          <text style='font-size:22rpx'>￥</text>{{dataCart.goodsVo.shopPrice || 0}}
+        </view>
+        <view class='mun1' wx:else>
+          <text style='font-size:22rpx'>￥</text>{{dataCart.goodsVo.salePrice || 0}}
+        </view>
+        <view class='sel'><block wx:if="{{gg_txt==''}}">请选择商品规格/数量</block><block wx:else>已选择{{gg_txt}}</block></view>
+    </view>
+      </view>
+      <van-icon name="cross" class='cross'  bindtap='onClose2'/>
+    </view>
+    <view class='goodsSele'>
+      <view class='goodsSele-name'>选择规格</view>
+      <view class='goodsSele-index'>
+        <text wx:for="{{guigeList}}" wx:key="gg"  class='tag' wx:for-item="item" class=" tag {{gg_id==item.name?'active':''}}" data-id="{{item.name}}" data-txt="{{item.name }}"  data-ids="{{item.id }}"data-price='{{item.salePrice}}' bindtap="filter">{{item.name}}</text>
+      </view>
+    </view>
+    <view class='goods-num'>
+      <view class='goodsSele-name'>购买数量</view>
+      <van-stepper class='stepper' value="{{valueNum}}"  bind:change="onChange" input-width="40px" button-size="28px" />
+    </view>
+  </view>
+  <view class='qunren' bindtap='onClickQueding'>确定</view>
+</view>
+<van-toast id="van-toast" />
+<van-dialog id="van-dialog" />

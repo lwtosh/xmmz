@@ -1,0 +1,11 @@
+<view class=''>
+<view class='pay'>
+ <image src='../../assets/pay.png'></image>
+ </view>
+ <view class='text'>您已经付款成功!</view>
+ <view class='box'>
+  <view class='back' bindtap='order'>查看订单</view>
+  <view class='back' bindtap='back'>返回首页</view>
+ </view>
+
+</view>

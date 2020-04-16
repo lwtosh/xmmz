@@ -1,0 +1,180 @@
+<swiper indicator-dots="true" circular="true" indicator-active-color="#FDB34D" autoplay="true" interval="3000" duration="1000" class='banner'>
+  <block wx:for="{{imgUrl1}}" wx:for-item="items">
+    <swiper-item>
+      <image src="{{items}}" class="slide-image" />
+    </swiper-item>
+  </block>
+</swiper>
+<view class='section1'>
+  <view class='price'>
+    <view class='mun1'>
+      <text style='font-size:22rpx'>￥</text>{{dataList.salePrice || 0}}
+      <text style='font-size:22rpx;color:#999;text-decoration: line-through'> ￥{{dataList.marketPrice }}</text>
+    </view>
+    <view class='mun2'>已卖出{{dataList.saleNumber}}件</view>
+  </view>
+  <view class='section1-center'>
+    <view class='title'>{{dataList.goodsName }}</view>
+    <view class='icon'>
+      <view class='icon-shuo'>
+        <image src='../../assets/icon-shou.png' wx:if='{{dataList.enshrineFlag == 0 || dataList.enshrineFlag == null}}' bindtap='onClickshou1' style=' width: 43rpx;height: 39rpx;'></image>
+        <image src='../../assets/icon-shou1.png' style=' width: 43rpx;height: 39rpx;' wx:else bindtap='onClickshou2'></image>
+        <view style='line-height:1.7'>收藏</view>
+      </view>
+      <button class='icon-shuo'  open-type="share">
+        <image src='../../assets/shra.png'></image>
+        <view style='line-height:1.45'>分享</view>
+      </button>
+    </view>
+  </view>
+  <view class='section1-footer' wx:if='{{identity == "1"}}'>
+     <image src='../../assets/vip3.png'></image>
+    您已成为店主<text style='color:#EF0F0F' wx-if='{{dataList.shopFlag == 1}}'>，本单立省￥{{mon}}</text>
+  </view>
+  <view class='section1-footer' wx:else>
+     <image src='../../assets/vip3.png'></image>
+    成为店主，
+    <text style='color:#EF0F0F'>立省￥{{mon}}</text>
+    <view class='kaiBtn' bindtap='onClickVip'>立即开通>></view>
+  </view>
+
+</view>
+<view class='section2' wx-if="{{userGoods.length !== 0}}">
+  <view class='se2-desc'>
+    <view class='se2-1'>{{userGoods.length}}人在拼单,可直接参与</view>
+    <view class='se2-2' bindtap='more'>查看更多></view>
+  </view>
+  <view class='secLi' wx:for="{{userGoods}}">
+    <view class='secLi-left'>
+      <image wx:if='{{item.tinyUserInfo.avatar}}' src='{{item.tinyUserInfo.avatar}}'></image>
+      <image src='../../assets/user-2.png' wx:else></image>
+      <text>{{item.tinyUserInfo.nickName}}</text>
+    </view>
+    <view class='secLi-right'>
+      <view class=''>
+        <view style='color:#737373;text-align:right;'>还差{{item.needJoinNum - item.joinNum || 0}}人拼成</view>
+        <view ><van-count-down time="{{ item.countdown * 1000 }}" style='color:#B3B3B3;font-size:24rpx;text-align:right;' millisecond  format="剩余HH:mm:ss"/></view>
+      </view>
+      <view class='tremBtn' bindtap='onGoTrem' data-text='{{item}}'>去参团</view>
+    </view>
+  </view>
+</view>
+<view class='section3'>
+  <view class='section3-top'>
+    <view class='section3-top-1'>商品详情</view>
+    <view class='section3-top-2'></view>
+    <view class='section3-top-3'>PRODUCT DETAILS</view>
+  </view>
+  <view class='section3-details' wx-if='{{dataList.goodsDetail !== null }}'>
+    <view class='section3-details-name'>商品信息</view>
+    <view>
+      <text>{{dataList.goodsDetail}}</text>
+    </view>
+  </view>
+  <view class='section3-img'>
+    <block wx:for="{{imgUrl2}}" wx:for-item="items">
+      <image src="{{items}}" mode='widthFix' />
+    </block>
+  </view>
+</view>
+<view class='flex'>
+  <view class='flex-1' bindtap='onCart'>
+   <view class='info'>
+   <text class='info1' wx-if="{{info !== 0}}">{{info}}</text>
+    <image src='../../assets/tab4.png'></image>
+   </view>
+    <view>购物车</view>
+  </view>
+  <view class='flex-5' wx-if='{{identity == 1 && dataList.shopFlag == 1}}' bindtap='onClickPay1'>加入购物车</view>
+  <view class='flex-6' wx-if='{{identity == 1 && dataList.shopFlag == 1}}'  bindtap='onClickPay2'>立即购买</view>
+  <view class='flex-2' wx-if='{{identity == 0 || dataList.shopFlag == 0}}'  bindtap='onClickPay1' data-text='1'>加入购物车</view>
+  <view class='flex-3'wx-if='{{identity == 0 || dataList.shopFlag == 0}}' bindtap='onClickPay2' data-text='2'>
+    <view style='font-size:26rpx'>
+      <text style='font-size:20rpx'>￥</text>{{dataList.salePrice || 0}}</view>
+    <view>单独购买</view>
+  </view>
+  <view class='flex-4'wx-if='{{identity == 0 || dataList.shopFlag == 0}}' data-text='3' bindtap='onClickPay3'>
+    <view style='font-size:26rpx'>
+      <text style='font-size:20rpx'>￥</text>{{dataList.groupPrice || 0}}</view>
+    <view>我要开团</view>
+  </view>
+</view>
+<!-- 查看更多 -->
+<van-popup show="{{ show }}" closeable position="bottom" bind:close='onClose' close-on-click-overlay custom-style="height: 776rpx" bind:close="onClose">
+  <view class='popup'>
+    <view class='wrap-desc'>正在拼单中</view>
+    <view class='box'>
+    <view class='secLi' wx:for="{{userGoodsMore}}">
+      <view class='secLi-left'>
+        <image wx:if='{{item.tinyUserInfo.avatar}}' src='{{item.tinyUserInfo.avatar}}'></image>
+         <image wx:else src='../../assets/user-2.png' wx:else></image>
+        <text>{{item.tinyUserInfo.nickName}}</text>
+      </view>
+      <view class='secLi-right'>
+        <view class=''>
+          <view style='color:#737373;text-align:right;'>还差{{item.needJoinNum - item.joinNum || 0}}人拼成</view>
+         <van-count-down time="{{ item.countdown * 1000 }}" millisecond  format="剩余HH:mm:ss"/></view>
+        <view class='tremBtn' bindtap='onGoTrem' data-text='{{item}}'>去参团</view>
+      </view>
+    </view>
+    </view>
+    
+    <view class='wrap-footer' wx-if='{{userGoodsMore.length >= 10}}'>仅显示10个正在拼单的人</view>
+  </view>
+</van-popup>
+<!-- 去参团 -->
+<van-popup show="{{showTrem}}" closeable bind:close='onClose1'>
+  <view class='popup1'>
+    <view class='popup-text1'>参与{{nickName}}的拼单</view>
+    <van-count-down time="{{countdown * 1000 }}" class='popup-text2' millisecond  format="仅剩{{needJoinNum || 0}}个名额HH:mm:ss后结束,赶快来参与哦~"/>
+    <view class='userFlex'>
+     <block wx:for="{{groupData}}" wx:key='{{item.id}}'>
+     <view class='tag0'>
+        <image wx:if="{{item.tinyUserInfo.avatar || item.tinyUserInfo.avatar !==null}}" src='{{item.tinyUserInfo.avatar}}' />
+        <image wx:else src='../../assets/user-2.png'/>
+        <!-- <image wx-if='{{item.user}}' src='../../assets/user3.png'/> -->
+        <view class='tag1' wx-if='{{item.firstJoinUser}}'>团主</view>
+      </view>
+      <!-- <view>
+        
+      </view> -->
+      </block>
+    </view>
+    <view class='popupBtn' bindtap='onClickPay'>去参团</view>
+  </view>
+</van-popup>
+<!-- 购买商品 -->
+<view wx-if="{{ showShop }}" class='wrappopup2'>
+  <view class='popup2'>
+    <view class='goods'>
+    <view class='goodsView'>
+    <image src='{{dataList.goodsCoverImg}}'></image>
+      <view class='goods-left'>
+        <view class='mun1' wx-if="{{dataList.groupFlag == 1 && cartNum == '3' ||  cartNum == '4' }}">
+          <text style='font-size:22rpx'>￥</text>{{dataList.groupPrice|| 0 }}
+        </view>
+         <view class='mun1' wx:elif="{{dataList.shopFlag == 1  && identity == 1}}">
+          <text style='font-size:22rpx'>￥</text>{{dataList.shopPrice || 0}}
+        </view>
+        <view class='mun1' wx:else>
+          <text style='font-size:22rpx'>￥</text>{{dataList.salePrice || 0}}
+        </view>
+        <view class='sel' wx-if='{{guigeList.length>0}}'><block wx:if="{{gg_txt==''}}">请选择商品规格/数量</block><block wx:else>已选择{{gg_txt}}</block></view>
+    </view>
+      </view>
+      <van-icon name="cross" class='cross'  bindtap='onClose2'/>
+    </view>
+    <view class='goodsSele' wx-if='{{guigeList.length>0}}'>
+      <view class='goodsSele-name' >选择规格</view>
+      <view class='goodsSele-index'>
+        <text wx:for="{{guigeList}}" wx:key="gg"  class='tag' wx:for-item="item" class=" tag {{gg_id==item.name?'active':''}}" data-id="{{item.name}}" data-txt="{{item.name }}"  data-ids="{{item.id }}"data-price='{{item.salePrice}}' bindtap="filter">{{item.name}}</text>
+      </view>
+    </view>
+    <view class='goods-num'>
+      <view class='goodsSele-name'>购买数量</view>
+      <van-stepper class='stepper' value="{{valueNum}}"  bind:change="onChange" input-width="40px" button-size="28px" />
+    </view>
+  </view>
+  <view class='qunren' bindtap='onClickQueding'>确定</view>
+</view>
+<van-toast id="van-toast" />

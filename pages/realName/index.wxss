@@ -1,0 +1,30 @@
+.cont{
+  padding:22rpx 0;
+  }
+  .name{
+    padding-left: 32rpx;
+    font-size: 28rpx;
+  }
+.van-cell:not(:last-child)::after{
+  left:0px;
+}
+.cont-1{
+  margin-bottom: 60rpx;
+}
+.info{
+  margin-top: 60rpx;
+   padding:0 35rpx;
+  font-size: 26rpx;
+  line-height: 1.5
+}
+.btn{
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  height:98rpx;
+  line-height: 98rpx;
+  color: #fff;
+  font-size: 28rpx;
+  background:#000;
+  text-align: center;
+}

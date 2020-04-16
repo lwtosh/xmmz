@@ -1,0 +1,15 @@
+{
+  "navigationBarTitleText": "购物车",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "component": true,
+  "usingComponents": {
+    "van-icon": "../../dist/icon/index",
+    "van-popup": "../../dist/popup/index",
+    "van-tag": "../../dist/tag/index",
+    "van-stepper": "../../dist/stepper/index",
+    "err": "../../components/err/index",
+    "van-toast": "../../dist/toast/index",
+    "van-dialog": "../../dist/dialog/index"
+  }
+}

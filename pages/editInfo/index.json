@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "编辑个人资料",
+  "usingComponents": {
+    "van-cell": "../../dist/cell/index",
+    "van-cell-group": "../../dist/cell-group/index",
+    "van-field": "../../dist/field/index",
+    "van-picker": "../../dist/picker/index",
+    "van-dialog": "../../dist/dialog/index",
+    "van-popup": "../../dist/popup/index",
+    "van-icon": "../../dist/icon/index"
+  }
+}

@@ -1,0 +1,34 @@
+<!-- 购买商品 -->
+<view class='wrappopup2'>
+  <view class='popup2'>
+    <view class='goods'>
+    <view class='goodsView'>
+    <image src='{{dataList.goodsCoverImg}}'></image>
+      <view class='goods-left'>
+        <view class='mun1' wx-if="{{dataList.groupFlag == 1 && cartNum == '3'}}">
+          <text style='font-size:22rpx'>￥</text>{{dataList.groupPrice|| 0 }}
+        </view>
+         <view class='mun1' wx:elif="{{dataList.shopFlag == 1  && cartNum == ''}}">
+          <text style='font-size:22rpx'>￥</text>{{dataList.shopPrice || 0}}
+        </view>
+        <view class='mun1' wx:else>
+          <text style='font-size:22rpx'>￥</text>{{dataList.salePrice || 0}}
+        </view>
+        <view class='sel'><block wx:if="{{gg_txt==''}}">请选择商品规格/数量</block><block wx:else>已选择{{gg_txt}}</block></view>
+    </view>
+      </view>
+      <van-icon name="cross" class='cross'  bindtap='onClose2'/>
+    </view>
+    <view class='goodsSele'>
+      <view class='goodsSele-name'>选择规格</view>
+      <view class='goodsSele-index'>
+        <text wx:for="{{guigeList}}" wx:key="gg"  class='tag' wx:for-item="item" class=" tag {{gg_id==item.name?'active':''}}" data-id="{{item.name}}" data-txt="{{item.name }}"  data-ids="{{item.id }}"data-price='{{item.salePrice}}' bindtap="filter">{{item.name}}</text>
+      </view>
+    </view>
+    <view class='goods-num'>
+      <view class='goodsSele-name'>购买数量</view>
+      <van-stepper class='stepper' value="{{valueNum}}"  bind:change="onChange" input-width="40px" button-size="28px" />
+    </view>
+  </view>
+  <view class='qunren' bindtap='onClickQueding'>确定</view>
+</view>

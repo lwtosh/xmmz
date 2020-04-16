@@ -1,0 +1,214 @@
+.cont{
+  width: 100%;
+  height: 100%;
+  background: #F5F5F5;
+  
+}
+.navigator-hover1{
+  background: #EDB550;
+}
+.navigator-hover{
+  background: none;
+}
+.login{
+  width: 100rpx;
+  line-height: 55rpx;
+  text-align: center;
+  border:1px solid #fff;
+  font-size: 28rpx;
+  color: #fff;
+  border-radius: 20px;
+}
+.header{
+  width: 100%;
+  height: 450rpx;
+  padding-left:20rpx;
+  background: #fff url(https://img-xmmz.oss-cn-hangzhou.aliyuncs.com/bgs.png) center no-repeat;
+  background-size: 100% 100%;
+}
+.header-hd{
+  padding-top: 70rpx;
+   display: flex;
+   justify-content: space-between;
+}
+.msg{
+ position: relative;
+}
+.vip{
+  width: 98rpx;
+  height:40rpx;
+  margin-left: 10rpx;
+}
+.msg-user{
+  width: 119rpx;
+  height: 119rpx;
+  border-radius: 50%;
+  display: inline-block;
+  vertical-align: -25rpx;
+}
+.msg-eitd{
+  width: 39rpx;
+  height: 39rpx;
+  position: absolute;
+  left: 83rpx;
+  z-index: 999;
+  bottom: -3rpx;
+}
+.msg-text{
+   margin-left: 10rpx;
+   color: #fff;
+   margin-top: -10rpx;
+   display: inline-block;
+   vertical-align: middle;
+}
+.name{
+ font-weight: bold;
+ font-size: 38rpx;
+}
+.id{
+  font-size: 20rpx;
+}
+.left{
+  width: 24%;
+  padding-right:20rpx;
+  display: flex;
+  justify-content: space-around
+}
+.shezhi image,.info image{
+  width: 52rpx;
+  height: 52rpx;
+}
+
+.header-bd{
+  width: 716rpx;
+  height: 135rpx;
+  background-size: 100% 100%;
+  display: flex;
+  justify-content:space-around;
+  color: #fff;
+  align-items:center;
+}
+.num{
+  font-size: 38rpx;
+  text-align: center;
+}
+.header-index{
+  font-size: 26rpx;
+  line-height: 1.5;
+}
+
+.diao{
+  width: 87%;
+  height: 98rpx;
+  margin-top: 10rpx;
+  background:url(https://img-xmmz.oss-cn-hangzhou.aliyuncs.com/myBg.jpg) center no-repeat;
+  background-size: 100% 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 35rpx 35rpx;
+  border-radius: 10rpx;
+}
+.diao-left{
+  font-size: 24rpx;
+  color: #A5A5A5;
+  line-height: 2.2;
+}
+.diao-left image{
+  height: 34rpx;
+  width: 167rpx;
+  vertical-align: -5rpx;
+}
+.diao-right{
+  width: 130rpx;
+  height: 44rpx;
+  line-height: 44rpx;
+  background:linear-gradient(87deg,rgba(245,193,100,1) 0%,rgba(255,224,158,1) 100%);
+  border-radius: 20rpx;
+  font-size: 22rpx;
+  text-align: center;
+  margin-top: 5rpx;
+}
+.h3{
+  font-size: 26rpx;
+  margin-bottom: 20rpx;
+}
+.order .h3{
+ display: inline-block;
+}
+.num2{
+  font-size: 30rpx;
+  margin-bottom: 10rpx;
+  text-align: center;
+}
+.header-index2{
+  font-size: 20rpx;
+  text-align: center;
+}
+.other,.order{
+   padding: 20rpx;
+   background: #fff;
+}
+.other{
+  margin-top: 15rpx;
+}
+.other-ul,.order-ul{
+  width: 100%;
+  padding: 15rpx  0 30rpx 0;
+  display: flex;
+  justify-content:space-around;
+  align-items: center;
+}
+.other-ul{
+  justify-content:flex-start;
+  flex-wrap: wrap
+}
+.order-ul{
+  padding: 15rpx  0 0rpx 0;
+ 
+}
+.kefu,.fu{
+  text-align: center;
+  margin:0 auto;
+}
+.kefu image{
+  width: 65rpx;
+  height: 65rpx;
+}
+.pr{
+  position: relative;
+}
+.fu{
+   position: relative;
+}
+.fu image{
+  width: 44rpx;
+  height: 36rpx;
+}
+
+.orders{
+  position: absolute;
+  right:-10rpx;
+  top:-11rpx;
+  border:1px solid #EF0F0F;
+  border-radius: 15rpx;
+  background: #EF0F0F;
+  z-index: 999;
+  padding: 0rpx 7rpx;
+  color: #fff;
+  font-size: 18rpx;
+}
+.header-index3{
+  font-size: 22rpx;
+  color: #999;
+  text-align: center;
+   white-space: nowrap;
+}
+.c-3{
+ width: 25%;
+ margin-bottom: 30rpx;
+}
+.more{
+  float: right;
+  font-size: 22rpx;
+  color: #BFBFBF;
+}

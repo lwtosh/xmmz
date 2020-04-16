@@ -1,0 +1,28 @@
+<!-- 底部导航条 -->
+<view class="navBar">
+  <view class="navBar-home" bindtap='goHome'>
+    <image wx:if="{{homeActive}}" src="../assets/tab1Active.png"></image>
+    <image wx:if="{{!homeActive}}" src="../assets/tab1.png"></image>
+    <text>仙美首页</text>
+  </view>
+  <view class="navBar-explore" bindtap='goExplore'>
+    <image wx:if="{{exploreActive}}" src="../assets/tab2.png"></image>
+    <image wx:if="{{!exploreActive}}" src="../assets/tab2Active.png"></image>
+    <text>全部产品</text>
+  </view>
+  <view class="navBar-user" bindtap='goUser'>
+    <image wx:if="{{userActive}}" src="../assets/tab3.png"></image>
+    <image wx:if="{{!userActive}}" src="../assets/tab3Active.png"></image>
+    <text>店主中心</text>
+  </view>
+  <view class="navBar-explore" bindtap='goExplore'>
+    <image wx:if="{{exploreActive}}" src="../assets/tab4.png"></image>
+    <image wx:if="{{!exploreActive}}" src="../assets/tab4Active.png"></image>
+    <text>购物车</text>
+  </view>
+  <view class="navBar-user" bindtap='goUser'>
+    <image wx:if="{{userActive}}" src="../assets/tab5.png"></image>
+    <image wx:if="{{!userActive}}" src="../assets/tab5Active.png"></image>
+    <text>个人中心</text>
+  </view>
+</view>

@@ -1,0 +1,21 @@
+<err wx:if='{{addInfo == 0}}' />
+<view class="list" wx:else>
+  <view wx:for="{{addInfo}}">
+    <van-swipe-cell right-width="{{ 215 }}" :on-close="onClose" :name='item.id'>
+      <view class='li'>
+        <view class="left">
+          <view class="user">{{item.consignee}} {{item.phone}}</view>
+          <view class="address">
+            <text wx-if="{{item.isDefault == 1}}">默认</text>{{item.province}}{{item.county}}{{item.city}}{{item.address}}</view>
+        </view>
+      </view>
+      <view slot="right" class='box'>
+       <view  class='btn1' bindtap='onClickDetail' data-id="{{item.id}}">设为默认</view>
+        <view  class='btn3' bindtap='onClickEidt'data-id="{{item.id}}">编辑</view>
+        <view  class='btn2' bindtap='onClickDel'data-id="{{item.id}}">删除</view>
+      </view>
+    </van-swipe-cell>
+  </view>
+</view>
+<view class='new' bindtap="address">新增收获地址</view>
+<van-dialog id="van-dialog" />

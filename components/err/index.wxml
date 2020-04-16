@@ -1,0 +1,4 @@
+<view class="err">
+  <image src="../../assets/err.png" class="err" alt=""/>
+  <view>暂无相关内容</view>
+</view>

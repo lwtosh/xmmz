@@ -1,0 +1,26 @@
+<view class="inte">
+  <view class="text">
+    <view class="com-left">
+      <view class="title">账户总额(元)</view>
+        <view class="mun" wx:if="{{money}}">{{money== null ? '--' :money}}</view>
+        <view class="mun" wx:else>--</view>
+      </view>
+      <view class="com-right">
+        <navigator url="../withdrawal/index"> 提现</navigator>
+      </view>
+    </view>
+  </view>
+  <err wx:if='{{dataInfo == 0}}' />
+  <view class="cont" wx:else>
+    <view class="integral-ul">
+      <view class="integral-li" wx:for='{{dataInfo}}'>
+        <view class="left">
+          <view class="desc">{{item.operInfo}}</view>
+          <view class="time">{{item.occurTime}}</view>
+        </view>
+        <view class="right" wx:if='{{item.money > 0}}'>+{{item.money}}</view>
+        <view class="right" style="color:#404040" wx:else>{{item.money}}</view>
+      </view>
+    </view>
+  </view>
+  <view wx-if='{{activeNo}}' class='moreDoing'>没有更多数据了哦~</view>

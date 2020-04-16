@@ -1,0 +1,12 @@
+<view class="cont">
+<view class='cont-1'>
+   <view class="name">真实姓名</view>
+  <van-field value="{{name}}" placeholder="请填写本人的真实姓名" bind:change='onClickChang1' readonly='{{disabled}}' style="" />
+</view>
+  
+  <view class="name">身份证号</view>
+  <van-field value="{{idcard}}" placeholder="请输入身份证号"   bind:change='onClickChang2' readonly='{{disabled}}' maxlength='19' type='text' style="" />
+  <view class="info">注意:以上信息请谨填写，若有假冒或虚假信息填写，将会影响你的提现等相关权益,若身份证号码含有字母，请使用小写。</view>
+</view>
+<view class="btn" bindtap="onSave" wx-if='{{disabled ==false}}'>提交认证</view>
+<van-toast id="van-toast" />

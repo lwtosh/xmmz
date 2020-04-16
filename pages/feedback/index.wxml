@@ -1,0 +1,21 @@
+<view class='item1'>
+    <view class='label'>
+     <view>问题/意见描述</view> 
+      <text class="currentWordNumber">{{currentWordNumber}}/300</text>
+     </view>
+    <textarea value='{{message}}' class='text'  autosize clearable type="textarea" maxlength="300" bindinput="inputs" placeholder="烦请您如实填写反馈的内容/意见或者建议，以便我们更好的 为您解决问题" auto-height placeholder-style='placeholder-style' style="margin-bottom:10rpx;min-height:120rpx;max-height:220rpx;width:100%"></textarea>
+    <van-uploader use-slot file-list="{{fileList}}"  bind:after-read="afterRead">
+      <view class='img'>
+       <image src='../../assets/icontianjiatupian.png'></image>
+       <view>添加图片</view>
+      </view>
+    </van-uploader>
+</view>
+<view class='item1'>
+  <!-- <van-cell-group> -->
+    <view class='label'>联系方式(选填)</view>
+    <input value='{{ipnoe}}' class='text'  autosize  type="number" maxlength="11" placeholder="请留下您的联系方式,我们可能联系您!" style="margin-bottom:10rpx;" />
+  <!-- </van-cell-group> -->
+</view>
+
+<view class="btn" bindtap="onSave">提交</view>

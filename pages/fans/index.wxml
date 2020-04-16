@@ -1,0 +1,20 @@
+<err wx:if='{{dataList.length == 0}}' />
+<view class="listUl">
+  <view class="listUl-li" wx:for="{{dataList}}" bindtap="onClickUser">
+    <view>
+      <image wx:if='{{item.avatar}}' class="useravr" :src="item.avatar" alt="" />
+      <image class="useravr" wx:else src="../../assets/user-2.png" alt="" />
+    </view>
+    <view class="user">
+      <view class="user-left">
+        <view class="name">{{item.nickName}}</view>
+        <view class="tel">ID:{{item.id}}</view>
+      </view>
+      <view class="user-right" wx-if='{{item.identity == 0}}'>普通会员</view>
+      <view class="user-right" wx-if='{{item.identity == 1}}' style='color:#EF0F0F'>店主</view>
+    </view>
+
+  </view>
+</view>
+<view wx-if='{{activeNo}}' class='moreDoing'>没有更多数据了哦~</view>
+<!-- </view> -->

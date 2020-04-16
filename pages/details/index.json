@@ -1,0 +1,14 @@
+{
+  "navigationBarTitleText": "商品详情",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "usingComponents": {
+    "van-button": "../../dist/button/index",
+    "van-popup": "../../dist/popup/index",
+    "van-tag": "../../dist/tag/index",
+    "van-stepper": "../../dist/stepper/index",
+    "van-icon": "../../dist/icon/index",
+    "van-toast": "../../dist/toast/index",
+    "van-count-down": "../../dist/count-down/index"
+  }
+}

@@ -1,0 +1,44 @@
+<view class='hander'>
+  <image class='hander-1' src='../../assets/vip2.png'></image>
+  <view class='hander-2'>购物花的少 分享赚得多</view>
+  <view class='hander-3'>成为仙美店主 省赚到底</view>
+  <view class='hander-4'>购物享专属超低价 分享赚最高{{configData.highestReward}}%推广奖励</view>
+</view>
+<view class='section1'>
+  <image class='vipBtn' wx:if='{{identity == "1"}}' src='{{avatar}}'></image>
+  <image class='vipBtn' wx:else bindtap='onClickKaiTong' src='../../assets/vip6.png'></image>
+</view>
+<view class='section2'>
+  <image class='quanyi' src='../../assets/vip5.png'></image>
+  <view class='title' wx:if="{{identity == 1}}">
+    <view class='title-1'>分享给好友赚钱</view>
+    <view class='title-3'></view>
+    <view class='title-2'>大牌精品 分享越多 赚的越多</view>
+  </view>
+  <view class='title' wx:else>
+    <view class='title-1'>成为店主礼包</view>
+    <view class='title-3'></view>
+    <view class='title-2'>购买任意一款礼包,即可成为仙美店主</view>
+  </view>
+  <view class='goodsUl'>
+  <block wx:for="{{dataList}}">
+  <view class='goodsLi' data-id='{{item.id}}' bindtap='onClickDetails'>
+      <view class='goods-img'>
+        <image src='{{item.goodsCoverImg}}'></image>
+      </view>
+      <view class='goods-test'>
+        <view class='goods-name'>{{item.goodsName}}</view>
+        <view class='goods-price1'>心动礼包价：
+          <text style='font-size:38rpx;'>￥{{item.salePrice || 0}}</text>
+        </view>
+        <view class='goods-price2'>市场价：￥{{item.marketPrice}}</view>
+        <view catchtap="preventD" wx:if="{{identity == 1}}" >
+        <button class='goodsBtn color' open-type='share' data-data='{{item}}'> <image src='../../assets/fenxiang3.png' class='fenxiang3'></image> 分享立赚{{configData.shareEarn}}%</button>
+        </view>
+        <view class='goodsBtn' wx:else>购买成为店主</view>
+      </view>
+    </view>
+  </block>
+  </view>
+
+</view>

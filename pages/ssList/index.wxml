@@ -1,0 +1,11 @@
+<err wx:if='{{dataList == 0}}' />
+<view class='list-ul'>
+  <view class='list-li'  wx:for="{{dataList}}" bindtap='onClickDetails' data-id='{{item.id}}'>
+    <image src='{{item.goodsCoverImg }}' class='goodImg'></image>
+    <view class='goodName'>{{item.goodsName }}</view>
+    <view class='price'>
+      <text style='font-size:26rpx;'>￥</text>{{item.salePrice }}
+      <text class='shi'>￥{{item.marketPrice}}</text>
+    </view>
+  </view>
+</view>

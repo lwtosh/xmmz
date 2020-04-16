@@ -1,0 +1,13 @@
+<!-- 自定义tab标签组件-->
+<!-- 标题列表-->
+<scroll-view scroll-x="true"  wx:if="{{!ttype || ttype==2}}">
+<view class="scroll-view-x">
+ <view  class="scroll-view-item" wx:for="{{tList}}" wx:key="*this" style='{{nav}}'>
+    <view class="{{currentTab==item.page ? 'on' : ''}}" bindtap="_swichNav" data-current="{{item.page}}">{{ !tname ? item.name : item[tname].name }}</view>
+  </view>
+</view>
+ 
+</scroll-view>
+<!--内容列表-->
+<slot>
+</slot>

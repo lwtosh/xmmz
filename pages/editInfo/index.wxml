@@ -1,0 +1,20 @@
+<view class="cont">
+  <view class='cell'>
+   <view class='label'>头像</view>
+   <view bindtap="chooseImage">
+        <image class="userMin" wx:if='{{avatar}}' src="{{avatar}}" alt="" />
+        <image class="userMin" wx:else src="../../assets/user-2.png" alt="" />
+        <van-icon name="arrow" class='arrow' />
+    </view>
+  </view>
+  <van-cell title="用户ID" value="{{id}}" style="padding:0" />
+  <van-cell title="用户名" value="{{nickName == 'undefined' || nickName == '' ? '请输入用户名':nickName}}" style="" is-link bindtap="onClickName" />
+  <van-cell title="性别" is-link value='{{sex}} ' style="padding:0" bindtap="onsexe" />
+</view>
+<view class="btn" bindtap="onSave">保存</view>
+<van-popup show="{{flag}}" position="bottom">
+  <van-picker title="" show-toolbar columns="{{columns}}" bind:cancel="onCancel" bindtap="showPicker = false" bind:confirm="onConfirm" />
+</van-popup>
+<van-dialog show="{{showUser}}" title="" use-slot show-cancel-button bind:close="onClose" bind:confirm='onconfirm' confirmButtonColor='#E8CA8A'>
+  <van-field clearable label="用户名" bind:change="onChange" value='{{nickName == "undefined" || nickName == "" ? "":nickName}}' placeholder="请输入用户名" />
+</van-dialog>

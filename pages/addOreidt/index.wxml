@@ -1,0 +1,33 @@
+<form bindsubmit="formSubmit" bindreset="formReset">
+  <view>
+    <view class='item b'>
+      <text class='left'>收货人</text>
+      <input value="{{addressInfo.consignee || ''}}" name="consignee" bindchange="bindinputName" class="input-index" type="textarea" title="收货人" placeholder="请输入收货人姓名" />
+    </view>
+    <view class='item b'>
+      <text class='left'>手机号</text>
+      <input value="{{ addressInfo.phone || ''}}" bindchange="bindinputMobile" class="input-index" type="number" title="手机号" placeholder="请输入收货人联系电话" maxlength="11" name="phone" />
+    </view>
+    <picker mode="region" bindchange="bindRegionChange" value="{{region}}" name="region" custom-item="{{customItem}}">
+      <view class="picker">
+        所在地
+        <text class='region'>{{region[0]}}  {{region[1]}}  {{region[2]}}</text>
+      </view>
+    </picker>
+    <view class='item b'>
+      <text class='left'>详细地址</text>
+      <input value="{{ addressInfo.address|| '' }}" class="input-index" name="address" type="textarea" title="详细地址" placeholder="如道路、门牌号、小区 楼栋号 单元室等" maxlength="50" bindchange="bindaddress" />
+    </view>
+    <view class='item b'>
+      <text class='left'>邮 编</text>
+      <input value="{{ addressInfo.postcode || ''}}" bindchange="bindcode" name="postcode" class="input-index" type="number" title="邮    编" maxlength="6" placeholder="请输入邮政编码" />
+    </view>
+    <view class='item '>
+    <text class='left'>设为默认地址</text>
+    <van-switch checked="{{ checked }}" class="input-index swich" active-color="#FCD68C" inactive-color="#B6B6B6" bind:change="onChange" size="24px" />
+    </view>
+    <button class='btn' formType="submit">保存并使用</button>
+    <van-toast id="van-toast" />
+
+  </view>
+</form>

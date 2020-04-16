@@ -1,0 +1,18 @@
+
+  <view wx:if="{{canIUse}}">
+    <view class='headView'>
+      <view class='headImageView'>
+        <image class='headImage' src='../../assets/logo.png' mode='scaleToFill'></image>
+      </view>
+      <view class='titleText'>申请获取以下权限</view>
+      <view class='contentText'>获得你的公开信息(昵称,头像,手机等)</view>
+       <button class='' type='primary' class=" authBtn {{flag?'show':'hide'}}" loading="{{loading}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+           <van-icon name="https://img-xmmz.oss-cn-hangzhou.aliyuncs.com/weixin.png" wx-if="{{!loading}}"  class='hweixinImage'/>授权登录
+        </button>
+      <button class='' type='primary'  class=" authBtn {{flag?'hide':'show'}}" loading="{{loading}}" open-type="getPhoneNumber" bindgetphonenumber="handleGetPhoneNumber"> <van-icon name="https://img-xmmz.oss-cn-hangzhou.aliyuncs.com/weixin.png" wx-if="{{!loading}}"  class='hweixinImage'/>授权手机号登录</button>
+      <view class='cale'  bindtap="bindGetUserInfo1">
+            取消
+      </view>
+    </view>
+  </view>
+  <view wx:else>请升级微信版本</view>

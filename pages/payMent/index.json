@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "确认付款",
+  "usingComponents": {
+    "van-icon": "../../dist/icon/index",
+    "van-toast": "../../dist/toast/index"
+  }
+}

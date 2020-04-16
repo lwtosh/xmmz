@@ -1,0 +1,22 @@
+<view class="cont">
+  <!-- <van-cell title="银行卡(添加银行卡)" is-link link-type="navigateTo"
+  url="../bankCard/index" value='{{bankName}}' /> -->
+  <view class="setion">
+    <van-field value="{{money}}" placeholder="请输入整数" type='number' bind:change="onChange" label="提现金额(元):" />
+    <view class="setion-bh">
+      <view class="desc1">
+        <view>可提现金额:￥{{mon}}</view>
+        <view>手续费:￥{{base1}}</view>
+        <view>实际到账金额:
+          <text style="color:#EF0F0F">￥{{realMon}}</text>
+        </view>
+      </view>
+      <view class="desc2" bindtap="onClickApply">全部提现</view>
+    </view>
+  </view>
+  <view class="zhuyi">注意：
+    <view>银行卡（仅限储蓄卡）提现将在下个工作日内审核处理完成。每人每天只能提现一次（时间为9：00--17:00），最低{{bankWithdrawMinMoney}}元，最高{{bankWithdrawMaxMoney}}元（要求整百提现），按照渠道要求，银行卡提现每笔收取{{base}}元基础费用+{{rate}}%元手续费。</view>
+  </view>
+  <view class="btn" style="background:#000" bindtap='onClick'>提现</view>
+  <van-toast id="van-toast" />
+</view>

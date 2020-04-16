@@ -1,0 +1,49 @@
+page{
+  background: #F5F5F5
+}
+.listUl {
+  padding:0 30rpx;
+  color: #404040;
+}
+
+.listUl-li {
+  padding: 25rpx 0;
+  border-bottom: 1px solid #E6E6E6;
+  display: flex;
+}
+
+.useravr {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+}
+
+image {
+  width: 100%;
+  height: 100%;
+}
+.user {
+  margin-left: 15rpx;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.name {
+  font-size:26rpx;
+  line-height: 1.5
+}
+
+.tel {
+  font-size:26rpx;
+  color: #999;
+}
+
+.user-right {
+  font-size:26rpx;
+  line-height: 2.5
+}
+
+.listUl-li:last-child {
+  border-bottom: 0;
+}

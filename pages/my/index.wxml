@@ -1,0 +1,139 @@
+<view class="cont">
+  <view class='header'>
+    <view class='header-hd'>
+      <view class='msg'>
+        <image src='../../assets/user-1.png' wx:if="{{active}}" class='msg-user'></image>
+        <view wx:else  class='msg-user'>
+        <image src='{{userInfo.avatar}}' wx:if='{{userInfo.avatar && userInfo.avatar != "undefined"}}'  class='msg-user'></image>
+        <image src='../../assets/user-1.png' wx:else class='msg-user'></image>
+        </view>
+         <view class='msg-text' wx:if="{{active}}" bindtap='handleLogin'>
+          <view class='login'>登录</view>
+        </view>
+        <view class='msg-text' wx:else>
+          <view class='name'>{{userInfo.nickName}}</view>
+          <view class='id'>ID:{{userInfo.id}}</view>
+        </view>
+        <image src='../../assets/vip3.png' wx-if='{{identity == "1"}}' class='vip'></image>
+        <!-- <view class='msg-text' wx:else>
+          <view class='name'>{{userInfo.nickName}}</view>
+          <view class='id'>ID:{{userInfo.id}}</view>
+        </view> -->
+      </view>
+      <view class='left'>
+       <navigator class='shezhi' url="../editInfo/index" hover-class="navigator-hover1"><image src='../../assets/shezhi.png'></image></navigator>
+       <navigator class='info' wx:if='{{infoNum > 0}}' url="../info/index" hover-class="navigator-hover1"><image src='../../assets/infoActive.png'></image></navigator>
+       <navigator class='info' wx:else url="../info/index" hover-class="navigator-hover1"><image src='../../assets/info.png'></image></navigator>
+      </view>
+    </view>
+    <view class='header-bd'>
+      <navigator class='c-1'  url="../account/index?money={{accoutData.money}}" hover-class="navigator-hover1">
+        <view class='num'  wx:if="{{active}}" >--</view>
+        <view class='num'  wx:else >{{accoutData.money}}</view>
+        <view class='header-index'>我的账户(元)</view>
+      </navigator>
+      <navigator class='c-1' url="../fans/index" hover-class="navigator-hover1" >
+        <view class='num'  wx:if="{{active}}">--</view>
+        <view class='num'  wx:else>{{accoutData.subCount}}</view>
+        <view class='header-index'>我的粉丝</view>
+      </navigator>
+      <navigator class='c-1' url="../collection/index" hover-class="navigator-hover1">
+        <view class='num'  wx:if="{{active}}">--</view>
+        <view class='num'  wx:else>{{accoutData.enshrineCount}}</view>
+        <view class='header-index'>我的收藏</view>
+      </navigator>
+    </view>
+     <view class='diao'>
+    <view class='diao-left'><image src='../../assets/vip2.png'></image>| 店主购物少花钱 分享多赚钱 </view>
+    <navigator open-type="switchTab" class='diao-right' url="../shopkeeperCenter/index" hover-class="navigator-hover">立即查看<van-icon name="play" /></navigator>
+  </view>
+  </view>
+ 
+   <view class='order'>
+    <view class='h3'>我的订单</view>
+    <navigator class='more'  url="../order/index">查看全部订单>></navigator>
+    <view class='order-ul'>
+      <navigator class='c-1' url="../order/index?status=0">
+        <view class='fu'>
+          <image src='../../assets/order2.png'></image>
+           <view class='{{orderData.noPayCount == "0" ? "" : "orders"}}' wx-if='{{orderData.noPayCount > "0"}}'>{{orderData.noPayCount}}</view>
+        </view>
+        <view class='header-index3 sizeColor'>待付款</view>
+      </navigator>
+      <navigator class='c-1' url="../order/index?status=1">
+        <view class='fu'>
+          <image src='../../assets/order1.png'></image>
+          <view class='{{orderData.payCount == "0" ? " " : "orders"}}' wx-if='{{orderData.payCount > "0"}}'>{{orderData.payCount}}</view>
+        </view>
+        <view class='header-index3'>待发货</view>
+      </navigator>
+      <navigator class='c-1' url="../order/index?status=2">
+        <view class='fu'>
+        <view class='{{orderData.dispatchCount == "0" ? " " : "orders"}}' wx-if='{{orderData.dispatchCount > "0"}}'>{{orderData.dispatchCount}}</view>
+          <image src='../../assets/order3.png'></image>
+        </view>
+        <view class='header-index3 '>待收货</view>
+      </navigator>
+      <!-- <navigator class='c-1' url="../order/index?status=5">
+        <view class='fu'>
+          <image src='../../assets/order4.png'></image>
+        </view>
+        <view class='header-index3 '>退货/售后</view>
+      </navigator> -->
+      <navigator class='c-1' url="../order/index?status=3">
+        <view class='fu'>
+          <image src='../../assets/order5.png'></image>
+        </view>
+        <view class='header-index3 '>已完成</view>
+      </navigator>
+    </view>
+  </view>
+  <view class='other'>
+    <view class='h3'>我的服务</view>
+    <view class='other-ul'>
+      <navigator class='c-3'  url="../spellPurchase/index" hover-class="navigator-hover">
+        <view class='kefu'>
+          <image src='../../assets/serve1.png'></image>
+        </view>
+        <view class='header-index3'>我的拼购</view>
+      </navigator>
+      <navigator class='c-3'  url="../code/index" hover-class="navigator-hover">
+        <view class='kefu'>
+          <image src='../../assets/serve2.png'></image>
+        </view>
+        <view class='header-index3 '>我的邀请码</view>
+      </navigator>
+      <navigator class='c-3' url="../address/index" hover-class="navigator-hover">
+        <view class='kefu'>
+          <image src='../../assets/serve3.png'></image>
+        </view>
+        <view class='header-index3 sizeColor'>收货地址</view>
+      </navigator>
+      <navigator class='c-3' url="../realName/index" hover-class="navigator-hover">
+        <view class='kefu'>
+          <image src='../../assets/serve7.png'></image>
+        </view>
+        <view class='header-index3 '>实名认证</view>
+      </navigator>
+      <navigator class='c-3' url="../feedback/index" hover-class="navigator-hover">
+        <view class='kefu'>
+          <image src='../../assets/serve4.png'></image>
+        </view>
+        <view class='header-index3 '>意见反馈</view>
+      </navigator>
+      <!-- <navigator class='c-3' url="../about/index" hover-class="navigator-hover">
+        <view class='kefu'>
+          <image src='../../assets/serve5.png'></image>
+        </view>
+        <view class='header-index3 '>关于我们</view>
+      </navigator> -->
+      <navigator class='c-3' url="../customer/index" hover-class="navigator-hover">
+        <view class='kefu'>
+          <image src='../../assets/serve6.png'></image>
+        </view>
+        <view class='header-index3 '>客服中心</view>
+      </navigator>
+    </view>
+  </view>
+   <i-toast id="toast" />
+</view>

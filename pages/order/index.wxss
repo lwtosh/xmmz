@@ -1,0 +1,551 @@
+.container {
+  width: 100%;
+  background-color: #f2f2f2;
+}
+
+.status-box {
+  width: 100%;
+  height: 88rpx;
+  line-height: 88rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+}
+.loading{
+  text-align: center;
+  margin: auto
+}
+.more{
+  color: #999;
+  font-size: 26rpx;
+  text-align: center;
+  line-height: 2.5
+}
+.status-box .status-label {
+  width: 150rpx;
+  height: 100%;
+  text-align: center;
+  font-size: 28rpx;
+  color: #353535;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.status-box .status-label.active {
+  color: #EF8D06;
+  border-bottom: 6rpx solid #EF8D06;
+}
+
+.status-box .status-label .red-dot {
+  width: 16rpx;
+  height: 16rpx;
+  position: absolute;
+  left: 116rpx;
+  top: 23rpx;
+  background-color: #EF8D06;
+  border-radius: 50%;
+}
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+.no-order {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  padding-top: 203rpx;
+  background-color: #f2f2f2;
+}
+
+.no-order-img {
+  width: 78%;
+  height: 33%;
+  margin-bottom: 31rpx;
+}
+
+.no-order .text {
+  font-size: 28rpx;
+  color: #999;
+  text-align: center;
+}
+
+.list {
+  background: #f5f5f5
+}
+
+.listUl-li {
+  padding: 30rpx 30rpx 0 30rpx;
+  background: #fff;
+  margin-bottom: 10px;
+}
+
+.order {
+  margin-bottom: 15rpx;
+  display: flex;
+  justify-content: space-between;
+  font-size: 24rpx;
+}
+
+.number {
+  color: #999;
+}
+
+.order-text {
+  color: #EF8D06;
+  font-size: 24rpx;
+}
+
+.cont {
+  display: flex;
+  border-bottom: 1px solid #f5f5f5;
+  padding-bottom: 0.1rem;
+}
+
+.shopImg {
+  width:180rpx;
+height:180rpx;
+
+  margin-right: 20rpx;
+}
+
+.shopImg image {
+  width: 100%;
+  height: 100%;
+}
+
+.cont-index {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  width: 80%;
+}
+
+.h4 {
+  font-size:28rpx;
+  color: #404040;
+  font-weight: 400;
+  line-height: 1.3;
+  margin-top: 10rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.x {
+  position: absolute;
+  left: 5px;
+  top: 1.15rem;
+  color: #bfbfbf;
+  font-size: 0.3rem;
+}
+
+.cash {
+  font-size: 0.3rem;
+  color: #999;
+}
+
+.price {
+  color: #ef0f0f;
+  font-size: 38rpx;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+.guige{
+  color: #808080;
+  font-size: 24rpx;
+  margin-top: 12rpx;
+}
+.yen {
+  font-weight: 400;
+  font-size: 22rpx;
+}
+
+.fu {
+  font-weight: 400;
+  font-size: 0.3rem;
+  color: #404040;
+}
+
+.foot {
+  height: 98rpx;
+  line-height: 98rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.time {
+  font-size: 22rpx;
+  line-height: 98rpx;
+  color: #808080;
+}
+
+.time1 {
+  padding:30rpx 0 0 0;
+  display: flex;
+}
+
+.order-list {
+  width: 100%;
+}
+
+.order-list .a-order {
+  width: 100%;
+  background-color: #fff;
+  margin-top: 20rpx;
+}
+
+.order-list .a-order .order-date {
+  padding: 0 30rpx;
+  height: 88rpx;
+  display: flex;
+  justify-content: space-between;
+  font-size: 26rpx;
+  color: #000;
+  align-items: center;
+}
+
+.order-list .a-order .order-date .red {
+  font-size: 26rpx;
+  color: #EF8D06;
+}
+
+.a-order  .goods-info, .goods-img-container {
+  width: 720rpx;
+  margin-left: 30rpx;
+  border-top: 1rpx solid #eee;
+  border-bottom: 1rpx solid #eee;
+  padding: 30rpx 0;
+  display: flex;
+  align-items: center;
+}
+
+.goods-info .img-box {
+  width: 120rpx;
+  height: 120rpx;
+  overflow: hidden;
+  margin-right: 30rpx;
+  background-color: #f7f7f7;
+}
+
+.goods-info .img-box .goods-img, .goods-img-container .img-box .goods-img {
+  width: 120rpx;
+  height: 120rpx;
+}
+
+.goods-info  .goods-des {
+  width: 540rpx;
+  height: 78rpx;
+  line-height: 39rpx;
+  font-size: 26rpx;
+  color: #000;
+  overflow: hidden;
+}
+
+.goods-img-container {
+  height: 180rpx;
+  box-sizing: border-box;
+  white-space: nowrap;
+}
+
+.goods-img-container .img-box {
+  width: 120rpx;
+  height: 120rpx;
+  overflow: hidden;
+  margin-right: 20rpx;
+  background-color: #f7f7f7;
+  display: inline-block;
+}
+
+.order-list .a-order .price-box {
+  position: relative;
+  width: 720rpx;
+  height: 100rpx;
+  margin-left: 30rpx;
+  box-sizing: border-box;
+  padding: 20rpx 30rpx 20rpx 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 26rpx;
+}
+
+.order-list .a-order .price-box .total-price {
+  font-size: 26rpx;
+  color: #EF8D06;
+}
+
+.a-order .price-box .btn {
+  width: 166rpx;
+  height: 60rpx;
+  box-sizing: border-box;
+  text-align: center;
+  line-height: 60rpx;
+  border-radius: 6rpx;
+  margin-left: 20rpx;
+}
+.btn{
+  display: flex;
+  justify-content: space-between;
+  width: 38%
+}
+.a-order .price-box .cancel-btn {
+  border: 1rpx solid #ccc;
+  position: absolute;
+  right: 216rpx;
+  top: 20rpx;
+  
+}
+
+.a-order .price-box .topay-btn {
+  border: 1px solid #EF8D06;
+  color: #EF8D06;
+}
+/* 查看物流 */
+#msg{
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  z-index: 11;
+  bottom: 0;
+}
+.box2{
+  position: absolute;
+  bottom: 0;
+  z-index: 22;
+  background: #fff;
+  border-top-left-radius: 20rpx;
+  border-top-right-radius: 20rpx;
+  color: #404040;
+}
+.g_con {
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+.topExpress {
+  width: 710rpx;
+  height: 155rpx;
+  background: #fff;
+  margin: 10rpx auto;
+  display: flex;
+  border-radius: 10rpx;
+  border-bottom: 1px solid #f5f5f5;
+}
+.van-button--small{
+padding: 0 !important;
+}
+.topExpress-left {
+  width: 100rpx;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.topExpress-right {
+  font-size: 26rpx;
+  color: #333;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20rpx 0;
+}
+
+.topExpress-right-middle {
+  font-size: 26rpx;
+}
+
+.topExpress-right-bottom {
+  font-size: 24rpx;
+  color: #999999;
+  margin-top: 5rpx;
+}
+
+.expressRecord {
+  width: 710rpx;
+  height: 510rpx;
+  background: #fff;
+  margin: 0 auto;
+  border-radius: 10rpx;
+}
+
+.expressRecord-getAddress {
+  width: 100%;
+  font-size: 22rpx;
+  color: #999;
+  display: flex;
+}
+
+.expressRecord-top {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.getAddress-icon {
+  width: 30rpx;
+  height: 30rpx;
+  border-radius: 50%;
+  background: #999;
+  font-size: 18rpx;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 80rpx;
+}
+
+.getAddress-text {
+  margin-left: 20rpx;
+}
+
+.noReach-online-top-close {
+  width: 1rpx;
+  height: 50rpx;
+  background: #d7d7d7;
+  margin-left: 95rpx;
+}
+
+.expressRecord-single-close {
+  width: 100%;
+  max-height: 157rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+}
+.shouhuo{
+    float: left;
+}
+.le{
+  display: inline-block;
+}
+.expressRecord-single-noReach-online-top-close {
+  display: flex;
+  flex-direction: column;
+}
+
+.online-top-closing {
+  width: 1rpx;
+  height: 50rpx;
+  background: #d7d7d7;
+  margin-left: 130rpx;
+}
+
+.online-top-close {
+  width: 1rpx;
+  height: 50rpx;
+  background: #999;
+  margin-left: 130rpx;
+}
+
+.dot-closing {
+  width: 10rpx;
+  height: 10rpx;
+  border-radius: 50%;
+  margin-left: 125rpx;
+  margin-top: 6rpx;
+  margin-bottom: 6rpx;
+  background: #EF8D06;
+}
+
+.dot-close {
+  width: 10rpx;
+  height: 10rpx;
+  border-radius: 50%;
+  margin-left:125rpx;
+  margin-top: 6rpx;
+  margin-bottom: 6rpx;
+  background: #999;
+}
+
+.online-bottom,.online-bottoming {
+  width: 1rpx;
+  height: 50rpx;
+  background: #999;
+  margin-left: 130rpx;
+}
+.online-bottoming{
+  height: 128rpx;
+}
+
+.online-bottom-start {
+  width: 1rpx;
+  height: 50rpx;
+  /* background: #999; */
+  margin-left: 130rpx;
+}
+
+.expressRecord-text {
+  margin-left: 30rpx;
+}
+
+.expressRecord-statusing {
+  font-size: 26rpx;
+  color: #333;
+}
+
+.expressRecord-status-addressing {
+  font-size: 22rpx;
+  color: #333;
+}
+
+
+.expressRecord-status {
+  font-size: 26rpx;
+  color: #999;
+}
+
+.expressRecord-status-address {
+  font-size: 22rpx;
+  color: #999;
+}
+
+.expressRecord-dating {
+  position: absolute;
+  height: 100%;
+  left: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: #333;
+}
+
+.expressRecord-date {
+  position: absolute;
+  height: 100%;
+  left: 10rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: #999;
+}
+
+.expressRecord-date-text {
+  font-size: 24rpx;
+}
+
+.expressRecord-date-time {
+  font-size: 18rpx;
+}
+.box-tl{
+  line-height: 2.5;
+  font-size: 32rpx;
+  text-align: center;
+  color: #404040;
+  background:#fff;
+  font-weight:bold;
+border-radius:20rpx 20rpx 0rpx 0rpx;
+}

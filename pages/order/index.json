@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "我的订单",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "usingComponents": {
+    "slideTab": "../../components/navigator/index",
+    "van-button": "../../dist/button/index",
+    "van-loading": "../../dist/loading/index",
+    "van-count-down": "../../dist/count-down/index",
+    "van-dialog": "../../dist/dialog/index"
+  }
+}

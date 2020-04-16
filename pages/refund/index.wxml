@@ -1,0 +1,37 @@
+<view class="listUl-li">
+  <view class="cont">
+    <image src="../../assets/pro2.png" alt="" class="shopImg" />
+    <view class="cont-index">
+      <view>
+        <view class="h4">Dior/迪奥999哑光烈艳蓝金口红唇膏旗 </view>
+        <view class='guige'>颜色: #999 MTE亚光红 x1 </view>
+      </view>
+      <view>
+        <view class="price">
+          <span class="yen">￥</span>398.22</view>
+      </view>
+    </view>
+  </view>
+</view>
+<van-cell title="退款类型" is-link bind:click="showPopup" />
+<view class='desc'>
+  <view class='desc-title'>退款说明:</view>
+  <textarea auto-height show-confirm-bar type='textarea' class='textarea' placeholder-style="color:#ccc" placeholder='请详细填写退款原因/所需换货规格,联系方式等以便快速处理您的 退换货订单'></textarea>
+</view>
+  <view class='btn' bindtap='onclick1'>提交</view>
+<!-- 选择退款 -->
+<van-popup show="{{ show }}" position="bottom" round closeable custom-style="height:500rpx" bind:close="onClose">
+  <view class='box1'>
+    <view class='box1-title'>选择退款类型</view>
+    <van-radio-group value="{{ radio }}" bind:change="onChange">
+      <van-cell-group>
+        <van-cell wx:for="{{listRadio}}" title="{{item.name}}" clickable data-name="{{item.id}}" bind:click="onClick">
+          <van-radio slot="right-icon" name="{{item.id}}" checked-color="#F9CE7C" />
+        </van-cell>
+      </van-cell-group>
+    </van-radio-group>
+  </view>
+  <view class='btn' bindtap='onclick1'>确定</view>
+</van-popup>
+
+<van-toast id="van-toast" />

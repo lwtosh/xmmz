@@ -1,0 +1,17 @@
+<err wx:if='{{infoList == 0}}' />
+<view class="cont" wx:else>
+  <view class="ul">
+    <view class="li" wx:for="{{infoList}}" :key='item.id'>
+      <view class="info-hb"  wx:if='{{item.type == "ORDER"}}'>
+        <image src="../../assets/info2.png" alt=""/>
+        <text class="title">{{item.title}}</text>
+      </view>
+      <view class="info-hb" wx:else>
+        <image src="../../assets/info1.png" alt=""/>
+        <text class="title">{{item.title}}</text>
+      </view>
+      <view class="info-cont">{{item.content}}</view>
+      <view class="time">{{item.sendTime}}</view>
+    </view>
+  </view>
+</view>

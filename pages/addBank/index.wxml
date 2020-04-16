@@ -1,0 +1,20 @@
+<van-cell-group>
+  <!-- <view bindtap="ares" >
+    <view >银行名称:</view>
+    <view class="orgen">{{name || '请选择银行'}}</view>
+  </view> -->
+  <picker mode="selector" class="ares" bindchange="bindRegionChange" value="{{region}}" name="region" custom-item="{{customItem}}">
+      <view class="label">
+        银行名称:
+        <text class='orgen'>{{region[0] || '请选择银行'}}</text>
+      </view>
+    </picker>
+  <van-field value="{{bankNo}}" label="银行卡号:" type='number' placeholder="请输入银行卡号" maxlength='19'  bind:change='onConfirm1'/>
+  <van-field value="{{addInfo.phone}}" label="预留手机号:" type='number' maxlength='11' placeholder="请输入银行预留手机号码" bind:change='onConfirm2'/>
+</van-cell-group>
+<view class="info">注意:添加的银行卡，需实名认证的名称的银行卡。</view>
+<view class="new1" bindtap="onSave">确认添加</view>
+<van-popup v-model="show1" position="bottom" :style="{ height: '35%' }">
+  <van-picker show-toolbar :columns="columns" bindtap="show1 = false" :confirm="onConfirm" />
+</van-popup>
+<van-toast id="van-toast" />

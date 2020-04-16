@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "我的收货地址",
+  "usingComponents": {
+    "van-swipe-cell": "../../dist/swipe-cell/index",
+    "van-button": "../../dist/button/index",
+    "van-dialog": "../../dist/dialog/index",
+    "err": "../../components/err/index"
+  }
+}
